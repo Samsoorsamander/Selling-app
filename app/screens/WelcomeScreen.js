@@ -4,13 +4,13 @@ export default function WelcemeScreen() {
     return (
         <ImageBackground
         style={styles.background}
-        source={require("../assets/img1.jpg")}
+        source={require("../assets/img2.jpeg")}
         >
-            <View style= {styles.container}>
+            <View style= {styles.logoContainer}>
             <Image source={require("../assets/logo.png")}
             style = {styles.logo}
             />
-                <Text>Sell What you don't need</Text>
+                <Text style ={styles.logoText}>Sell What you don't need</Text>
             </View>
             <View style ={styles.loginButton}></View>
             <View style ={styles.registerButton}></View>
@@ -30,16 +30,18 @@ const styles = StyleSheet.create({
         height: 70,
         backgroundColor: "#fc5c65"
     },
-    container: {
+    logoContainer: {
         flex: 1,
         position: "absolute",
-        top: 50,
+        top: 70,
         alignItems: "center",
-        color:"black"
     },
     logo:{
         width: 100,
         height: 100,
+    },
+    logoText:{
+        color: 'blck'
     },
     registerButton: {
         width:"100%",

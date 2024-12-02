@@ -1,11 +1,15 @@
-import { View,  StyleSheet, Image } from "react-native"
+import { View,  StyleSheet, Image, useWindowDimensions } from "react-native"
 import colors from "../../config/colors"
-
+import AntDesign from "@expo/vector-icons/AntDesign"
 export default function ViewImageScreen() {
     return (
         <View style ={styles.container}>
-            <View style = {styles.closeIcon}></View>
-            <View style = {styles.deleteIcon}></View>
+            <View style = {styles.closeIcon}>
+                <AntDesign name="close" color={colors.white} size={30}/>
+            </View>
+            <View style = {styles.deleteIcon}>
+            <AntDesign name="delete" color={colors.white} size={30}/>
+            </View>
             <Image 
             style ={styles.imageStyle}
             resizeMode="contain"
@@ -22,9 +26,6 @@ const styles = StyleSheet.create({
 
     },
     closeIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: colors.primary,
         position:"absolute",
         top: 40,
         left: 30 
@@ -34,9 +35,6 @@ const styles = StyleSheet.create({
         height: "100%",
     },
     deleteIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: colors.secondary,
         position:"absolute",
         top: 40,
         right: 30

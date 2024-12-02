@@ -4,6 +4,7 @@ import AppButton from "../../Components/AppButton"
 export default function WelcemeScreen() {
     return (
         <ImageBackground
+        blurRadius={5}
         style={styles.background}
         source={require("../assets/img2.jpeg")}
         >
@@ -11,10 +12,12 @@ export default function WelcemeScreen() {
             <Image source={require("../assets/logo.png")}
             style = {styles.logo}
             />
-                <Text style ={styles.logoText}>Sell What you don't need</Text>
+                <Text style ={styles.tagline}>Sell What you don't need</Text>
             </View>
-            < AppButton title="login" onPress={console.log("Tapped")}/>
-            <View style ={styles.registerButton}></View>
+            <View style={styles.buttonContainer}>
+            < AppButton title="login" />
+            <AppButton title="Register" color="secondary"/>
+            </View>
 
         </ImageBackground>
     )
@@ -37,12 +40,19 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
     },
-    logoText:{
-        color: 'blck'
-    },
+    
     registerButton: {
         width:"100%",
         height: 70,
         backgroundColor: "#4ecdc4"
     },
+    buttonContainer: {
+        padding: 20,
+        width: "100%"
+    },
+    tagline: {
+        fontSize: 25,
+        fontWeight: "600",
+        paddingVertical: 20,
+    }
 })

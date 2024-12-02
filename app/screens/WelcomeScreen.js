@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet,ImageBackground, Image } from "react-native"
+import AppButton from "../../Components/AppButton"
 
 export default function WelcemeScreen() {
     return (
@@ -12,7 +13,7 @@ export default function WelcemeScreen() {
             />
                 <Text style ={styles.logoText}>Sell What you don't need</Text>
             </View>
-            <View style ={styles.loginButton}></View>
+            < AppButton title="login" onPress={console.log("Tapped")}/>
             <View style ={styles.registerButton}></View>
 
         </ImageBackground>
@@ -25,11 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: "flex-end",
         alignItems: 'center'
     },
-    loginButton: {
-        width:"100%",
-        height: 70,
-        backgroundColor: "#fc5c65"
-    },
+    
     logoContainer: {
         flex: 1,
         position: "absolute",

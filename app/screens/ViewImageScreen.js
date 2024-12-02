@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         backgroundColor: color.primary,
         position:"absolute",
         top: 40,
-        left: 30
+        left: 30 
     },
     imageStyle: {
         width: "100%",

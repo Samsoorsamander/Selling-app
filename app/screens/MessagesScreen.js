@@ -1,6 +1,7 @@
-import { FlatList } from "react-native";
+import { FlatList,StyleSheet, View } from "react-native";
 import ListItem from "../../Components/ListItem";
-
+import Screen from "./Screen";
+import ListItemSeparator from "../../Components/ListItemSeparator";
 const messages = [
     {
         id: 1,
@@ -15,8 +16,9 @@ const messages = [
         Image:require("../assets/img1.jpg")
     }
 ]
-export default function MessagesScreen() {
+export default function MessagesScreen(props) {
     return (
+        <Screen >
         <FlatList 
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -25,6 +27,11 @@ export default function MessagesScreen() {
         subTitle={item.descreiption}
         image={item.Image}
         />}
+        ItemSeparatorComponent={ListItemSeparator}
         />
+        </Screen>
     )
 }
+
+const styles= StyleSheet.create({
+})

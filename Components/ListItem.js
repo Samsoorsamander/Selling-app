@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: "row",
-        justifyContent: "flex-start"
+        padding: 15
     },
     title: {
         fontWeight:"500",

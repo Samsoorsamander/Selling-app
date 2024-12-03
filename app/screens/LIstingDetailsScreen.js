@@ -15,7 +15,7 @@ export default function ListingDetailsScreen(props) {
              image = {require("../assets/img1.jpg")}
              title ="Samsoor Samander"
              subTitle =" 5 Listings"
-            
+
              />
              </View>
         </View>

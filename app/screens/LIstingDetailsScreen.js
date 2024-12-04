@@ -2,6 +2,7 @@ import { View, StyleSheet,Image } from "react-native";
 import AppText from "../../Components/AppText";
 import colors from "../../config/colors";
 import ListItem from "../../Components/ListItem";
+import ListItemDelete from "../../Components/ListItemDeleteAction";
 export default function ListingDetailsScreen(props) {
     return (
         <View>
@@ -15,6 +16,7 @@ export default function ListingDetailsScreen(props) {
              image = {require("../assets/img1.jpg")}
              title ="Samsoor Samander"
              subTitle =" 5 Listings"
+
 
              />
              </View>

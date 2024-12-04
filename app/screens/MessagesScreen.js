@@ -20,6 +20,7 @@ const Intialmessages = [
 ]
 export default function MessagesScreen(props) {
     const[messages,setMessages] =useState(Intialmessages);
+    const[refreshing, setRefreshing] = useState(false)
     const handleDelete = (message) => {
         const newMessages = messages.filter((m) => m.id !== message.id);
         setMessages(newMessages);
@@ -35,10 +36,23 @@ export default function MessagesScreen(props) {
         subTitle={item.descreiption}
         image={item.Image}
         onPress={() => console.log("Message is selected", item)}
-        renderRightAction={() => <ListItemDelete onPress={() => handleDelete(item)}/>}        
-
+        renderRightAction={() => <ListItemDelete onPress={() => handleDelete(item)}/>}
+        
         />}
         ItemSeparatorComponent={ListItemSeparator}
+        refreshing={refreshing}
+        onRefresh={ () => {
+            
+            setMessages([ 
+                {
+                    id: 2,
+                    title: "T2",
+                    descreiption: "D2",
+                    Image:require("../assets/img1.jpg")
+                }
+            ])
+        }
+        }
 
         />
         </Screen>

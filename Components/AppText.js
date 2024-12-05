@@ -8,7 +8,7 @@ export default function AppText({children, style}) {
 
 const styles =StyleSheet.create({
     text: {
-        fontSize: 25,
+        fontSize: 20,
         fontFamily: Platform.OS ==="android" ? "Roboto" :"Avenir"
     }
 })

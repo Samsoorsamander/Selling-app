@@ -3,7 +3,7 @@ import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-export default function ListItem({title, subTitle,ImageComponent, image, onPress,renderRightAction}) {
+export default function ListItem({title, subTitle, IconComponent, image, onPress,renderRightAction}) {
     return (
         <>
      <Swipeable
@@ -16,7 +16,7 @@ export default function ListItem({title, subTitle,ImageComponent, image, onPress
         >
             
         <View style= {styles.container}>
-            {ImageComponent}
+            {IconComponent}
             {image && <Image style= {styles.image} source={image} />}
             <View style={styles.detailsContainer}>
             <AppText style={styles.title}>{title}</AppText>
@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     },
     container: {
         flexDirection: "row",
-        padding: 15
+        padding: 15,
+        backgroundColor: colors.white
     },
     detailsContainer: {
         marginLeft: 10,
         justifyContent: "center",
-        alignItems: "center"
     },
     title: {
         fontWeight:"500",

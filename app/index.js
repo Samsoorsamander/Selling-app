@@ -1,11 +1,13 @@
-import AppTextInput from "../Components/AppTextInput"
-import ListingScreen from "./screens/ListingScreen"
+import { Switch } from "react-native"
 import Screen from "./screens/Screen"
+import { useState } from "react"
 
 export default function App() {
+    const [isNew, setIsNew] =useState(true);
+
     return (
         <Screen>
-            <AppTextInput icon="email" placeholder="Username"  />
+            <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)}/>
         </Screen>
         )
 }

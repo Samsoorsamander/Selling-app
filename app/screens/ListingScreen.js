@@ -1,4 +1,3 @@
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { FlatList } from "react-native";
 import Card from "../../Components/Card";
 import Screen from "./Screen";

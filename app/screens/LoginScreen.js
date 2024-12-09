@@ -1,6 +1,6 @@
 import { Image, StyleSheet } from "react-native";
-import {Formik} from "formik";
 import * as Yup from "yup";
+import AppForm from "../../Components/AppForm";
 import Screen from "./Screen";
 import AppFormField from "../../Components/AppFormField";
 import SubmitButton from "../../Components/SubmitButton";
@@ -14,13 +14,11 @@ export default function LoginScreen() {
     return (
         <Screen style={Styles.container}>
         <Image style={Styles.logo}  source={require("../assets/logo.png")}/>
-        <Formik
+        <AppForm
         initialValues={{email: "", password:""}}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
         >
-            {() => (
-                <>
          <AppFormField 
         autoCapitalize="none"
         autoCorrect ={false}
@@ -40,9 +38,8 @@ export default function LoginScreen() {
         textContentType="Password"
         />
             <SubmitButton title="loging"/>
-                </>
-            )}
-        </Formik>
+         
+        </AppForm>
         
                 </Screen>
     )

@@ -34,7 +34,7 @@ export default function ListEditScreen({}) {
             >
                 <AppFormField maxLength={255} name="title" placeholder="Title"/>
                 <AppFormField keyboardType="numeric" maxLength={8} name="price" placeholder="Price"/>
-                <AppFormField  name="category" placeholder="Category" item={categories}/>
+                <AppFormPicker  name="category" placeholder="Category" items={categories}/>
                 <AppFormField maxLength={255} numberOfLines={3} name="description" placeholder="Description"/>
                 <SubmitButton title="Post"/>
 

@@ -1,11 +1,12 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { View, StyleSheet, TextInput, Platform, Modal, Button, FlatList } from "react-native";
+import { View, StyleSheet, Modal, Button, FlatList } from "react-native";
 import defaultStyles from"../config/styles"
 import Screen from "../app/screens/Screen";
 import AppText from "./AppText";
 import { TouchableWithoutFeedback } from "react-native";
 import { useState } from "react";
 import PickerItem from "./PickerItem";
+import styles from "../config/styles";
 export default function AppPicker({icon, item,selectedItem ,placeholder, onSelectItem}) {
     const [modalVisible, setModalVisible] = useState(false)
 
@@ -13,9 +14,12 @@ export default function AppPicker({icon, item,selectedItem ,placeholder, onSelec
         <>
         <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
             
-      <View style={styles.container}>
+      <View style={Styles.container}>
            { icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon}/> }
-            <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder}</AppText>
+           {selectedItem ?( 
+            <AppText style={Styles.text}>{selectedItem.label}</AppText>)
+            : (<AppText style={Styles.placeholder}>{placeholder}</AppText>)}
+            
             <MaterialCommunityIcons name="chevron-down" size={20} color={defaultStyles.colors.medium} />
         </View>
         </TouchableWithoutFeedback>
@@ -38,7 +42,7 @@ export default function AppPicker({icon, item,selectedItem ,placeholder, onSelec
     )
 }
 
-const styles =StyleSheet.create({
+const Styles =StyleSheet.create({
     container: {
         backgroundColor:defaultStyles.colors.light,
         borderRadius: 25,
@@ -53,6 +57,10 @@ const styles =StyleSheet.create({
     icon: {
         marginRight: 10,
 
+    },
+    placeholder: {
+        flex: 1,
+        color: defaultStyles.colors.medium,
     },
     text: {
         flex: 1,

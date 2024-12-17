@@ -1,4 +1,5 @@
-import { FlatList,StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import ListItem from "../../Components/ListItem";
 import Screen from "./Screen";
 import ListItemSeparator from "../../Components/ListItemSeparator";
@@ -27,6 +28,8 @@ export default function MessagesScreen(props) {
     }
 
     return (
+        <GestureHandlerRootView>
+
         <Screen >
         <FlatList 
         data={messages}
@@ -56,6 +59,8 @@ export default function MessagesScreen(props) {
 
         />
         </Screen>
+        </GestureHandlerRootView>
+
     )
 }
 

@@ -8,14 +8,14 @@ import ListItemDelete from "../../Components/ListItemDeleteAction";
 const Intialmessages = [
     {
         id: 1,
-        title: "T1",
-        descreiption: "D1",
+        title: "Samsoor Samander",
+        descreiption: "Hey is this avalible?",
         Image:require("../assets/img1.jpg")
     },
     {
         id: 2,
-        title: "T2",
-        descreiption: "D2",
+        title: "Samsoor Samander",
+        descreiption: "I am intersted in this ",
         Image:require("../assets/img1.jpg")
     }
 ]

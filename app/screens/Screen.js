@@ -5,7 +5,7 @@ export default function Screen({children, style}) {
     return (
         
     <SafeAreaView style= {[styles.screen, style]}>
-        <View style={style}>
+        <View style={[styles.view,style]}>
     {children}
 
         </View>
@@ -20,5 +20,8 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
         flex: 1,
         backgroundColor:colors.white,
+    },
+    view: {
+        flex: 1,
     }
 })

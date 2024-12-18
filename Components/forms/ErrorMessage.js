@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import AppText from "../AppText";
+import Text from "../Text";
 
 
 export default function ErrorMessage({error, visible}) {
     if(!visible || !error ) return null;
-    return <AppText style={Styles.text}>{error}</AppText>
+    return <Text style={Styles.text}>{error}</Text>
 }
 
 const Styles = StyleSheet.create({

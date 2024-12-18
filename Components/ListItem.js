@@ -2,7 +2,7 @@ import Swipeable from "react-native-gesture-handler/Swipeable"
 import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons"
 
-import AppText from "./AppText";
+import Text from "./Text";
 import colors from "../config/colors";
 
 export default function ListItem({title, subTitle, IconComponent, image, onPress,renderRightAction}) {
@@ -21,8 +21,8 @@ export default function ListItem({title, subTitle, IconComponent, image, onPress
             {IconComponent}
             {image && <Image style= {styles.image} source={image} />}
             <View style={styles.detailsContainer}>
-            <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
-            {subTitle && <AppText style={styles.subTitle} numberOfLines={2}>{subTitle}</AppText>}
+            <Text style={styles.title} numberOfLines={1}>{title}</Text>
+            {subTitle && <Text style={styles.subTitle} numberOfLines={2}>{subTitle}</Text>}
             </View>
             <MaterialCommunityIcons name="chevron-right" size={25} color={colors.medium}/>
         </View>

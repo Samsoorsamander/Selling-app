@@ -1,7 +1,7 @@
 import * as React from "react"
 import { View, StyleSheet } from "react-native"
 import Icons from "./Icons"
-import AppText from "./AppText"
+import Text from "./Text"
 export default function CategoryPickerItem({item, onPress}) {
     return (
         <View style={Styles.container}>
@@ -10,7 +10,7 @@ export default function CategoryPickerItem({item, onPress}) {
             backgroundColor={item.backgroundColor}
             size={80}
             />
-            <AppText style={Styles.label}>{item.label}</AppText>
+            <Text style={Styles.label}>{item.label}</Text>
         </View>
     )
 }

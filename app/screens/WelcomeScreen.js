@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet,ImageBackground, Image } from "react-native"
-import AppButton from "../../Components/AppButton"
+import Button from "../../Components/Button"
 
 export default function WelcemeScreen() {
     return (
@@ -15,8 +15,8 @@ export default function WelcemeScreen() {
                 <Text style ={styles.tagline}>Sell What you don't need</Text>
             </View>
             <View style={styles.buttonContainer}>
-            < AppButton title="login" />
-            <AppButton title="Register" color="secondary"/>
+            < Button title="login" />
+            <Button title="Register" color="secondary"/>
             </View>
 
         </ImageBackground>

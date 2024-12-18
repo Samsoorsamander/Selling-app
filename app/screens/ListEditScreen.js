@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup"
 
-import { AppForm,AppFormField,AppFormPicker ,SubmitButton } from "../../Components/forms";
+import { Form as Form,FormField as FormField,FormPicker as FormPicker ,SubmitButton } from "../../Components/forms";
 import Screen from "./Screen";
 import CategoryPickerItem from "../../Components/CategoryPickerItem";
 
@@ -18,18 +18,18 @@ const categories = [
     {label: "Furniture", value: 1, backgroundColor:"red", Icons:"sofa"},
     {label: "Cars", value: 2, backgroundColor:"orange", Icons:"car"},
     {label: "Camera", value: 3, backgroundColor:"yellow", Icons:"camera"},
-    {label: "Games", value: 1, backgroundColor:"red", Icons:"gamepad-variant"},
-    {label: "Clothing", value: 2, backgroundColor:"green", Icons:"shoe-heel"},
-    {label: "Sports", value: 3, backgroundColor:"blue", Icons:"cricket"},
-    {label: "Movies & Music", value: 1, backgroundColor:"red", Icons:"movie"},
-    {label: "Books", value: 2, backgroundColor:"green", Icons:"book"},
-    {label: "Others", value: 3, backgroundColor:"blue", Icons:"star"},
+    {label: "Games", value: 4, backgroundColor:"red", Icons:"gamepad-variant"},
+    {label: "Clothing", value: 5, backgroundColor:"green", Icons:"shoe-heel"},
+    {label: "Sports", value: 6, backgroundColor:"blue", Icons:"cricket"},
+    {label: "Movies & Music", value: 7, backgroundColor:"red", Icons:"movie"},
+    {label: "Books", value: 8, backgroundColor:"green", Icons:"book"},
+    {label: "Others", value: 9, backgroundColor:"blue", Icons:"star"},
 ]
 
 export default function ListEditScreen({}) {
     return (
         <Screen style={Styles.container}>
-            <AppForm
+            <Form
             initialValues={{
                 title:"",
                 price:"",
@@ -39,11 +39,11 @@ export default function ListEditScreen({}) {
             onSubmit={(values) => console.log(values)}
             validationSchema={validationSchema}
             >
-                <AppFormField 
+                <FormField 
                 maxLength={255} 
                 name="title" 
                 placeholder="Title"/>
-                <AppFormField 
+                <FormField 
                 keyboardType="numeric" 
                 maxLength={8} 
                 name="price" 
@@ -51,7 +51,7 @@ export default function ListEditScreen({}) {
                 width={120}
                 />
 
-                <AppFormPicker  
+                <FormPicker  
                 name="category" 
                 placeholder="Category"
                 numberOfColumns={3} 
@@ -59,7 +59,7 @@ export default function ListEditScreen({}) {
                 item={categories}
                 width="50%"
                 />
-                <AppFormField 
+                <FormField 
                 maxLength={255} 
                 numberOfLines={3} 
                 name="description" 
@@ -67,7 +67,7 @@ export default function ListEditScreen({}) {
                 <SubmitButton title="Post"/>
 
 
-            </AppForm>
+            </Form>
 
         </Screen>
 

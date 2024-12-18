@@ -1,7 +1,6 @@
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { View, StyleSheet, TextInput } from "react-native";
 import defaultStyles from"../config/styles"
-import colors from "../config/colors";
 export default function AppTextInput({icon, width="100%", ...otherProps}) {
     return (
         <View style={[styles.container, {width}]}>

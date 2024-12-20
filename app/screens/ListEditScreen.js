@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
+import * as Location from "expo-location";
 import * as Yup from "yup";
 
 import { ErrorMessage, Form, FormField, FormPicker, SubmitButton } from "../../Components/forms";
@@ -28,6 +29,35 @@ const categories = [
 ];
 
 export default function ListEditScreen() {
+    const [location, setLocation] = useState();
+    const getLocation = async () => {
+        try {
+            // Request permissions for location
+            const { granted } = await Location.requestBackgroundPermissionsAsync(); // Use foreground permissions
+            if (!granted) {
+                console.log("Permission not granted");
+                return;
+            }
+
+            // Attempt to get the last known position
+            const lastKnownLocation = await Location.getLastKnownPositionAsync();
+
+            // If no last known position, try to get the current position
+            if (lastKnownLocation) {
+                const { latitude, longitude } = lastKnownLocation.coords;
+                setLocation({ latitude, longitude });
+            } else {
+                const currentPosition = await Location.getCurrentPositionAsync();
+                const { latitude, longitude } = currentPosition.coords;
+                setLocation({ latitude, longitude });
+            }
+        } catch (error) {
+            console.log("Error getting location:", error);
+        }
+    };
+    useEffect(() => {
+        getLocation();
+    },[])
     return (
         <Screen style={styles.container}>
             <Form
@@ -38,7 +68,7 @@ export default function ListEditScreen() {
                     category: null,
                     images: [],
                 }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => console.log(location)}
                 validationSchema={validationSchema}
             >
                 <FormImagePicker name="images" />

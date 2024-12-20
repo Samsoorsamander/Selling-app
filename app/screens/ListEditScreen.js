@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import * as Location from "expo-location";
 import * as Yup from "yup";
 
-import { ErrorMessage, Form, FormField, FormPicker, SubmitButton } from "../../Components/forms";
+import {  Form, FormField, FormPicker, SubmitButton } from "../../Components/forms";
 import Screen from "./Screen";
 import CategoryPickerItem from "../../Components/CategoryPickerItem";
 import FormImagePicker from "../../Components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required().min(1).label("Title"),
@@ -29,35 +28,7 @@ const categories = [
 ];
 
 export default function ListEditScreen() {
-    const [location, setLocation] = useState();
-    const getLocation = async () => {
-        try {
-            // Request permissions for location
-            const { granted } = await Location.requestBackgroundPermissionsAsync(); // Use foreground permissions
-            if (!granted) {
-                console.log("Permission not granted");
-                return;
-            }
-
-            // Attempt to get the last known position
-            const lastKnownLocation = await Location.getLastKnownPositionAsync();
-
-            // If no last known position, try to get the current position
-            if (lastKnownLocation) {
-                const { latitude, longitude } = lastKnownLocation.coords;
-                setLocation({ latitude, longitude });
-            } else {
-                const currentPosition = await Location.getCurrentPositionAsync();
-                const { latitude, longitude } = currentPosition.coords;
-                setLocation({ latitude, longitude });
-            }
-        } catch (error) {
-            console.log("Error getting location:", error);
-        }
-    };
-    useEffect(() => {
-        getLocation();
-    },[])
+     const location= useLocation();
     return (
         <Screen style={styles.container}>
             <Form
